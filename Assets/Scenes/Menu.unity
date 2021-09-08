@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 38534061}
   - component: {fileID: 38534060}
   - component: {fileID: 38534059}
+  - component: {fileID: 38534062}
   m_Layer: 5
   m_Name: Start Button
   m_TagString: Untagged
@@ -205,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 38534060}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 38534062}
+        m_TargetAssemblyTypeName: Match3Game.UI.Buttons.LoadSceneButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &38534060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +257,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38534057}
   m_CullTransparentMesh: 1
+--- !u!114 &38534062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38534057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0168b6f1df6944829aa9bae79baf0f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loader: {fileID: 0}
+  _sceneName: Gameplay
 --- !u!1 &257929449
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +441,7 @@ GameObject:
   - component: {fileID: 611894099}
   - component: {fileID: 611894098}
   - component: {fileID: 611894097}
+  - component: {fileID: 611894100}
   m_Layer: 5
   m_Name: Exit Button
   m_TagString: Untagged
@@ -484,7 +512,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 611894098}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 611894100}
+        m_TargetAssemblyTypeName: Match3Game.UI.Buttons.QuitGameButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &611894098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +563,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611894095}
   m_CullTransparentMesh: 1
+--- !u!114 &611894100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611894095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69062955d5c34f93b111db661926bf3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _popup: {fileID: 0}
 --- !u!1 &911806537
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,6 +588,7 @@ GameObject:
   - component: {fileID: 911806541}
   - component: {fileID: 911806540}
   - component: {fileID: 911806539}
+  - component: {fileID: 911806542}
   m_Layer: 5
   m_Name: About Button
   m_TagString: Untagged
@@ -605,7 +659,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 911806540}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 911806542}
+        m_TargetAssemblyTypeName: Match3Game.UI.Buttons.LoadSceneButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &911806540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,6 +710,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911806537}
   m_CullTransparentMesh: 1
+--- !u!114 &911806542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911806537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0168b6f1df6944829aa9bae79baf0f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loader: {fileID: 0}
+  _sceneName: About
 --- !u!1 &1423664713
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +815,7 @@ GameObject:
   - component: {fileID: 1805652970}
   - component: {fileID: 1805652969}
   - component: {fileID: 1805652968}
+  - component: {fileID: 1805652971}
   m_Layer: 5
   m_Name: Raitings Button
   m_TagString: Untagged
@@ -805,7 +886,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1805652969}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1805652971}
+        m_TargetAssemblyTypeName: Match3Game.UI.Buttons.LoadSceneButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1805652969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,6 +937,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805652966}
   m_CullTransparentMesh: 1
+--- !u!114 &1805652971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805652966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0168b6f1df6944829aa9bae79baf0f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loader: {fileID: 0}
+  _sceneName: Raitings
 --- !u!1 &1838023504
 GameObject:
   m_ObjectHideFlags: 0
