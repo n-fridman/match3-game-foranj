@@ -6,7 +6,8 @@ namespace Match3Game.UI.Buttons
     public class QuitMenuButton : MonoBehaviour
     {
         [Header("Components")]
-        [SerializeField] private Popup _popup;
+        [Tooltip("Quit menu popup reference.")]
+        [SerializeField] private QuitMenuPopup _popup;
 
         private void Awake()
         {
