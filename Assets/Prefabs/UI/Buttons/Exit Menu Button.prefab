@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 7601942401713950836}
   - component: {fileID: 7601942401713950837}
   - component: {fileID: 7601942401713950842}
+  - component: {fileID: 6703475221679281348}
   m_Layer: 5
   m_Name: Exit Menu Button
   m_TagString: Untagged
@@ -199,4 +200,30 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7601942401713950837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6703475221679281348}
+        m_TargetAssemblyTypeName: Match3Game.UI.Buttons.QuitMenuButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6703475221679281348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7601942401713950840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a809183dcf224c6aa25ff16eb06ccde3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loader: {fileID: 0}
+  _popup: {fileID: 0}
