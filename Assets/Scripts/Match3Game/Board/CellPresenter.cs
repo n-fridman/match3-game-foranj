@@ -1,10 +1,11 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Match3Game.Board
 {
     [AddComponentMenu("Match 3 Game/Board/Cell Presenter")]
+    [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(Image))]
     public class CellPresenter : MonoBehaviour
     {
         [Header("Components")] 
