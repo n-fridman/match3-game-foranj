@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Match3Game.Types
 {
     /// <summary>
@@ -8,5 +10,6 @@ namespace Match3Game.Types
     {
         public int scoreCount;
         public CellType type;
+        public Color color;
     }
 }
