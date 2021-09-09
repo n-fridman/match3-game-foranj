@@ -9,6 +9,11 @@ namespace Match3Game.Board
         [Tooltip("Linked cell.")]
         [SerializeField] private Cell _linkedCell;
 
+        [Header("Settings")] 
+        [Tooltip("Cell background position in game grid.")]
+        [SerializeField] private Vector2Int _positionInGrid;
+        public Vector2Int PositionInGrid => _positionInGrid;
+        
         [Tooltip("True if linked cell exist.")]
         [SerializeField] private bool _isLinked;
         public bool IsLinked => _isLinked;
@@ -34,5 +39,12 @@ namespace Match3Game.Board
         /// Detach linked cell.
         /// </summary>
         public void DetachLinkedCell() => _isLinked = false;
+        
+        /// <summary>
+        /// Set cell bg position in game grid.
+        /// </summary>
+        /// <param name="x">X-axis position.</param>
+        /// <param name="y">Y-axis position.</param>
+        public void SetPositionInGrid(int x, int y) => _positionInGrid = new Vector2Int(x, y);
     }
 }
