@@ -13,7 +13,8 @@ namespace Match3Game.Board
         [Header("Settings")]
         [SerializeField] private CellData _data;
         public int Score => _data.scoreCount;
-
+        public CellType Type => _data.type;
+        
         private void Awake()
         {
             if (_presenter == null) _presenter = GetComponent<CellPresenter>();
