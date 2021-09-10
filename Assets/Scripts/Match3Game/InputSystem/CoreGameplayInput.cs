@@ -40,6 +40,7 @@ namespace Match3Game.InputSystem
             if (Input.GetMouseButtonDown(0))
             {
                 CellBg cellBg = GetCellBgForPosition(Input.mousePosition);
+                if (cellBg == null) return;
                 _boardController.DestroyCell(cellBg);
             }
         }
