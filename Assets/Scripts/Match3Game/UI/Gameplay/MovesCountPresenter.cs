@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,9 +13,6 @@ namespace Match3Game.UI.Gameplay
         private void Awake()
         {
             if (_movesCountText == null) _movesCountText = GetComponent<Text>();
-            {
-                throw new NotImplementedException();
-            }
         }
         
         /// <summary>
