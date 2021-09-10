@@ -19,13 +19,25 @@ namespace Match3Game.Board
         {
             if (_presenter == null) _presenter = GetComponent<CellPresenter>();
         }
-
+        
+        /// <summary>
+        /// Set cell data.
+        /// </summary>
+        /// <param name="data"></param>
         public void SetCellData(CellData data)
         {
             _data = data;
             
             _presenter.SetCellColor(data.color);
             _presenter.SetCellScore(data.scoreCount);
+        }
+        
+        /// <summary>
+        /// Play cell destroy animation.
+        /// </summary>
+        public void PlayDestroyAnimation()
+        {
+            _presenter.PlayDestroyAnimation();
         }
     }
 }
