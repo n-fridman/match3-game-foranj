@@ -6,7 +6,7 @@ namespace Match3Game.Board
     public struct BoardControllerEvents
     {
         public UnityEvent onGameStart;
-        public UnityEvent onGameEnd;
+        public UnityEvent<GameResult> onGameEnd;
         public UnityEvent<int> onScoreCountChanged;
         public UnityEvent<int> onPlayerMovesCountChanged;
     }
