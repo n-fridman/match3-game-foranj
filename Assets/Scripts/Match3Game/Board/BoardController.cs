@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,8 @@ namespace Match3Game.Board
         public BoardControllerEvents events;
 
         private CellBg[,] _board;
-
+        private DateTime _gameDateTime;
+        
         /// <summary>
         /// Check exist empty cells on board.
         /// </summary>
@@ -198,6 +200,8 @@ namespace Match3Game.Board
 
             _board = _generator.GenerateBoard(_boardSize.x, _boardSize.y);
             
+            _gameDateTime = DateTime.Now;
+            
             events.onScoreCountChanged?.Invoke(_scoreCount);
             events.onPlayerMovesCountChanged?.Invoke(_movesCount);
             events.onGameStart?.Invoke();
@@ -237,7 +241,12 @@ namespace Match3Game.Board
             events.onScoreCountChanged?.Invoke(_scoreCount);
             if (_movesCount == 0)
             {
-                events.onGameEnd?.Invoke();
+                GameResult gameResult = new GameResult
+                {
+                    scoreCount = _scoreCount,
+                    gameDateTime = _gameDateTime
+                };
+                events.onGameEnd?.Invoke(gameResult);
             }
             
             StartCoroutine(UpdateGameBoard());
