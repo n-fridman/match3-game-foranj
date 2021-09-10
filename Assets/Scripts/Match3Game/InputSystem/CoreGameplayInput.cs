@@ -8,13 +8,11 @@ namespace Match3Game.InputSystem
         [Header("Components")] 
         [SerializeField] private Camera _mainCamera;
         [SerializeField] private BoardController _boardController;
-        
-        private void Awake()
-        {
-            // _mainCamera = Camera.main;
-            if (_boardController == null) _boardController = FindObjectOfType<BoardController>();
-        }
 
+        [Header("Settings")] 
+        [Tooltip("Pause input.")]
+        [SerializeField] private bool _pause;
+        
         private CellBg GetCellBgForPosition(Vector2 position)
         {
             Ray ray = _mainCamera.ScreenPointToRay(position);
@@ -29,14 +27,31 @@ namespace Match3Game.InputSystem
 
             return null;
         }
+        
+        private void Awake()
+        {
+            if (_boardController == null) _boardController = FindObjectOfType<BoardController>();
+        }
 
         private void Update()
         {
+            if (_pause) return;
+
             if (Input.GetMouseButtonDown(0))
             {
                 CellBg cellBg = GetCellBgForPosition(Input.mousePosition);
                 _boardController.DestroyCell(cellBg);
             }
         }
+        
+        /// <summary>
+        /// Set pause.
+        /// </summary>
+        public void SetPause() => _pause = true;
+        
+        /// <summary>
+        /// Continue.
+        /// </summary>
+        public void UnsetPause() => _pause = false;
     }
 }
