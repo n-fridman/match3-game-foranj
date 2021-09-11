@@ -38,6 +38,12 @@ namespace Match3Game.Board
         public void PlayDestroyAnimation()
         {
             _presenter.PlayDestroyAnimation();
+            _presenter.DisableHighlight();
         }
+
+        /// <summary>
+        /// Highlight cell.
+        /// </summary>
+        public void HighlightCell() => _presenter.PlayHighlightAnimation();
     }
 }
