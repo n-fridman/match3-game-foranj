@@ -13,7 +13,8 @@ namespace Match3Game.Board
         [SerializeField] private Image _cellImage;
         [SerializeField] private Text _cellScoreText;
        
-        private static readonly int Destroy1 = Animator.StringToHash("Destroy");
+        private static readonly int DestroyTrigger = Animator.StringToHash("Destroy");
+        private static readonly int Highlight = Animator.StringToHash("Highlight");
 
         private void Awake()
         {
@@ -37,6 +38,17 @@ namespace Match3Game.Board
         /// <summary>
         /// Play cell destroy animation.
         /// </summary>
-        public void PlayDestroyAnimation() => _cellAnimator.SetTrigger(Destroy1);
+        public void PlayDestroyAnimation() => _cellAnimator.SetTrigger(DestroyTrigger);
+        
+        /// <summary>
+        /// Play highlight animation.
+        /// </summary>
+        public void PlayHighlightAnimation() => _cellAnimator.SetBool(Highlight, true);
+
+        /// <summary>
+        /// Disable highlight animation.
+        /// </summary>
+        public void DisableHighlight() => _cellAnimator.SetBool(Highlight, false);
+
     }
 }
