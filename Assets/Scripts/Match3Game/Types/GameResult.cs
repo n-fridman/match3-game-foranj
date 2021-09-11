@@ -1,6 +1,6 @@
 using System;
 
-namespace Match3Game.Board
+namespace Match3Game.Types
 {
     [Serializable]
     public struct GameResult
