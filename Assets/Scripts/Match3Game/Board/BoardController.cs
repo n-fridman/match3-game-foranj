@@ -5,6 +5,7 @@ using System.Linq;
 using Match3Game.InputSystem;
 using Match3Game.Types;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Match3Game.Board
 {
@@ -180,6 +181,31 @@ namespace Match3Game.Board
         }
         
         /// <summary>
+        /// Return cell bg for highlight.
+        /// </summary>
+        /// <returns>Cell bg.</returns>
+        private CellBg FindCellBgToHighlight()
+        {
+            for (int x = 0; x < _boardSize.x; x++)
+            {
+                for (int y = 0; y < _boardSize.y; y++)
+                {
+                    CellBg cellBgForCheck = _board[x, y];
+                    List<CellBg> matchedCellBgs = GetMatchedCellBgs(cellBgForCheck);
+                    if (matchedCellBgs.Count >= 3)
+                    {
+                        int i = Random.Range(0, matchedCellBgs.Count);
+                        return matchedCellBgs[i];
+                    }
+                }
+            }
+
+            int xAxisRandomPosition = Random.Range(0, _boardSize.x);
+            int yAxisRandomPosition = Random.Range(0, _boardSize.y);
+            return _board[xAxisRandomPosition, yAxisRandomPosition];
+        }
+        
+        /// <summary>
         /// Update cells on board.
         /// </summary>
         private IEnumerator UpdateGameBoard()
@@ -207,6 +233,17 @@ namespace Match3Game.Board
             events.onGameStart?.Invoke();
         }
 
+        private void Start()
+        {
+            CellBg cellBgForHighlight = FindCellBgToHighlight();
+            Cell cell = cellBgForHighlight.GetLinkedCell();
+            cell.HighlightCell();
+        }
+
+        /// <summary>
+        /// Destroy cell.
+        /// </summary>
+        /// <param name="cellBg">Cell bg to destroy.</param>
         public void DestroyCell(CellBg cellBg)
         {
             _input.SetPause();
@@ -237,8 +274,10 @@ namespace Match3Game.Board
                 _movesCount += matchedCells.Count - 1;
                 Debug.Log($"{{Board}} => [BoardController] - (DestroyCell) -> Added {matchedCells.Count - 1} moves count.");
             }
+            
             events.onPlayerMovesCountChanged?.Invoke(_movesCount);
             events.onScoreCountChanged?.Invoke(_scoreCount);
+            
             if (_movesCount == 0)
             {
                 GameResult gameResult = new GameResult
