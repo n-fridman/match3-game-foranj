@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Match3Game.Board
+namespace Match3Game.UI.Gameplay
 {
     [AddComponentMenu("Match 3 Game/Board/Cell Presenter")]
     [RequireComponent(typeof(Animator))]
@@ -49,6 +49,5 @@ namespace Match3Game.Board
         /// Disable highlight animation.
         /// </summary>
         public void DisableHighlight() => _cellAnimator.SetBool(Highlight, false);
-
     }
 }
