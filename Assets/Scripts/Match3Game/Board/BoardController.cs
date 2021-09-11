@@ -282,7 +282,7 @@ namespace Match3Game.Board
             {
                 GameResult gameResult = new GameResult
                 {
-                    scoreCount = _scoreCount,
+                    score = _scoreCount,
                     gameDateTime = _gameDateTime
                 };
                 events.onGameEnd?.Invoke(gameResult);
