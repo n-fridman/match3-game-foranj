@@ -6,7 +6,6 @@ namespace Match3Game.Types
     public struct GameResult
     {
         public string date;
-        public DateTime gameDateTime;
         public int score;
     }
 }
