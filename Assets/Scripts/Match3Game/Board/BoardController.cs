@@ -277,13 +277,16 @@ namespace Match3Game.Board
             
             events.onPlayerMovesCountChanged?.Invoke(_movesCount);
             events.onScoreCountChanged?.Invoke(_scoreCount);
+
+
+            string gameDate = $"{_gameDateTime.Day}-{_gameDateTime.Month}-{_gameDateTime.Year} {_gameDateTime.Hour}:{_gameDateTime.Minute}:{_gameDateTime.Second}";
             
             if (_movesCount == 0)
             {
                 GameResult gameResult = new GameResult
                 {
-                    scoreCount = _scoreCount,
-                    gameDateTime = _gameDateTime
+                    score = _scoreCount,
+                    date = gameDate
                 };
                 events.onGameEnd?.Invoke(gameResult);
             }
