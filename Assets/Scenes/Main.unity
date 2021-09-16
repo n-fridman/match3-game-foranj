@@ -153,8 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneLoader: {fileID: 0}
+  _raitingsDrawer: {fileID: 0}
   _gameResults: []
-  _maxGameResultsCount: 0
+  _maxGameResultsCount: 10
   _playerPrefsSaveKey: RaitingsTableData
   _defaultRaitingsResourceName: Raitings/Game Raitings Template
 --- !u!4 &961394281
