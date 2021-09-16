@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 888098302}
   - component: {fileID: 888098301}
   m_Layer: 0
-  m_Name: Lose Manager
+  m_Name: Game End Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -694,6 +694,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _losePopup: {fileID: 0}
+  _raitingsManager: {fileID: 0}
+  _loader: {fileID: 0}
 --- !u!4 &888098302
 Transform:
   m_ObjectHideFlags: 0
