@@ -46,5 +46,10 @@ namespace Match3Game.Board
         /// Highlight cell.
         /// </summary>
         public void HighlightCell() => _presenter.PlayHighlightAnimation();
+        
+        /// <summary>
+        /// Disable highlight animation.
+        /// </summary>
+        public void DisableHighlight() => _presenter.DisableHighlight();
     }
 }
