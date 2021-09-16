@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Match3Game.SceneManagement;
 using Match3Game.Types;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Match3Game.Raitings
 {
@@ -14,7 +16,10 @@ namespace Match3Game.Raitings
         {
             public List<GameResult> results;
         }
-        
+
+        [Header("Components")] 
+        [SerializeField] private SceneLoader _sceneLoader;
+
         [Header("Game results")] 
         [SerializeField] private List<GameResult> _gameResults;
 
@@ -40,9 +45,33 @@ namespace Match3Game.Raitings
             PlayerPrefs.SetString(_playerPrefsSaveKey, json);
             Debug.Log("{Raitings} => [RaitingsManager] - (SaveGameResults) -> Raitings table data saved to player prefs.");
         }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            switch (scene.name)
+            {
+                case "Raitings":
+                    
+                    break;
+            }
+        }
+        
+        /// <summary>
+        /// Sort game results in collection.
+        /// </summary>
+        private void Sort()
+        {
+            _gameResults.Sort((result1, result2) => {
+                if (result1.score > result2.score) return -1;
+                if (result1.score < result2.score) return 1;
+                return 0;
+            });
+        }
         
         private void Awake()
         {
+            if (_sceneLoader == null) _sceneLoader = FindObjectOfType<SceneLoader>(true);
+
             if (PlayerPrefs.HasKey(_playerPrefsSaveKey))
             {
                 string raitingsJson = PlayerPrefs.GetString(_playerPrefsSaveKey);
@@ -61,6 +90,10 @@ namespace Match3Game.Raitings
                 
                 Debug.Log("{Raitings} => [RaitingsManager] - (Awake) -> Raitings table loaded from resource file.");
             }
+            
+            Sort();
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
         private void OnApplicationPause(bool pauseStatus)
@@ -75,26 +108,31 @@ namespace Match3Game.Raitings
             SaveGameResults();
         }
 
+        private void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
         /// <summary>
         /// Add new game result.
         /// </summary>
         /// <param name="result">Game result structure.</param>
-        public GameResult AddGameResult(GameResult result)
+        /// <returns>True if result added to raitings table.</returns>
+        public bool AddGameResult(GameResult result)
         {
-            if (_gameResults.Count >= _maxGameResultsCount)
+            GameResult lastGameResult = _gameResults.Last();
+            if (lastGameResult.score < result.score)
             {
-                GameResult lastGameResult = _gameResults.Last();
                 _gameResults.Remove(lastGameResult);
+                result.highlight = true;
                 _gameResults.Add(result);
-            }
-            
-            _gameResults.Sort((result1, result2) => {
-                if (result1.score > result2.score) return -1;
-                if (result1.score < result2.score) return 1;
-                return 0;
-            });
+                    
+                Sort();
 
-            return result;
+                return true;
+            }
+
+            return false;
         }
         
         /// <summary>
