@@ -19,6 +19,7 @@ namespace Match3Game.Raitings
 
         [Header("Components")] 
         [SerializeField] private SceneLoader _sceneLoader;
+        [SerializeField] private RaitingsDrawer _raitingsDrawer;
 
         [Header("Game results")] 
         [SerializeField] private List<GameResult> _gameResults;
@@ -51,7 +52,18 @@ namespace Match3Game.Raitings
             switch (scene.name)
             {
                 case "Raitings":
-                    
+                    _raitingsDrawer = FindObjectOfType<RaitingsDrawer>();
+                    _raitingsDrawer.DrawRaitings(_gameResults);
+                    GameResult highlightedGameResult = _gameResults.Find(g => g.highlight);
+                    if (highlightedGameResult.highlight)
+                    {
+                        highlightedGameResult.highlight = false;
+                        int index = _gameResults.IndexOf(highlightedGameResult);
+                        if (_gameResults.Remove(highlightedGameResult))
+                        {
+                            _gameResults.Insert(index, highlightedGameResult);
+                        }
+                    }
                     break;
             }
         }
