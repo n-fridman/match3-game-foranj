@@ -40,9 +40,7 @@ namespace Match3Game.UI
             
             float containerHeightAfterAddingItem = containerHeight + itemHeight + _verticalSpacing;
             _containerRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, containerHeightAfterAddingItem);
-            
-            listItem.OnDraw();
-            listItem.OnDraw(_drawingIndex);
+
             return listItem;
         }
     }
