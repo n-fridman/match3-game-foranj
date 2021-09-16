@@ -57,10 +57,11 @@ namespace Match3Game.Raitings
                     GameResult highlightedGameResult = _gameResults.Find(g => g.highlight);
                     if (highlightedGameResult.highlight)
                     {
-                        highlightedGameResult.highlight = false;
                         int index = _gameResults.IndexOf(highlightedGameResult);
                         if (_gameResults.Remove(highlightedGameResult))
                         {
+                            highlightedGameResult.highlight = false;
+                            Debug.Log("DDD");
                             _gameResults.Insert(index, highlightedGameResult);
                         }
                     }
