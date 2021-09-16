@@ -28,7 +28,11 @@ namespace Match3Game.UI.Raitings
         /// Set row icon border color.
         /// </summary>
         /// <param name="color">Color</param>
-        public void SetRowColor(Color color) => _rowIconBorderImage.color = color;
+        public void SetRowColor(Color color)
+        {
+            _rowAnimator.enabled = false;
+            _rowIconBorderImage.color = color;
+        }
 
         /// <summary>
         /// Highlight raitings row.
