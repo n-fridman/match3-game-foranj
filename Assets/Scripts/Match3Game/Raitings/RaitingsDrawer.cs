@@ -31,7 +31,7 @@ namespace Match3Game.Raitings
 
                 switch (i)
                 {
-                    case 0: 
+                    case 0:
                         presenter.SetRowColor(_top1RowColor);
                         break;
                     
