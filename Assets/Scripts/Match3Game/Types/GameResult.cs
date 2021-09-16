@@ -1,10 +1,9 @@
-using System;
-
 namespace Match3Game.Types
 {
-    [Serializable]
+    [System.Serializable]
     public struct GameResult
     {
+        public bool highlight;
         public string date;
         public int score;
     }

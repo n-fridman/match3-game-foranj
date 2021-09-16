@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d10967f782bc45f58a0adf993f4b7cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sceneLoader: {fileID: 0}
   _gameResults: []
   _maxGameResultsCount: 0
   _playerPrefsSaveKey: RaitingsTableData
