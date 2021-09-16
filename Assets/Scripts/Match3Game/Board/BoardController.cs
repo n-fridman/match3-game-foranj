@@ -36,6 +36,7 @@ namespace Match3Game.Board
 
         private CellBg[,] _board;
         private DateTime _gameDateTime;
+        private Cell _highlightedCell;
         
         /// <summary>
         /// Check exist empty cells on board.
@@ -205,6 +206,11 @@ namespace Match3Game.Board
             return _board[xAxisRandomPosition, yAxisRandomPosition];
         }
         
+        private void DisableCellHighlight()
+        {
+            
+        }
+        
         /// <summary>
         /// Update cells on board.
         /// </summary>
@@ -238,6 +244,7 @@ namespace Match3Game.Board
             CellBg cellBgForHighlight = FindCellBgToHighlight();
             Cell cell = cellBgForHighlight.GetLinkedCell();
             cell.HighlightCell();
+            _highlightedCell = cell;
         }
 
         /// <summary>
@@ -246,6 +253,12 @@ namespace Match3Game.Board
         /// <param name="cellBg">Cell bg to destroy.</param>
         public void DestroyCell(CellBg cellBg)
         {
+            if (_highlightedCell != null)
+            {
+                _highlightedCell.DisableHighlight();
+                _highlightedCell = null;
+            }
+            
             _input.SetPause();
             
             _movesCount--;
